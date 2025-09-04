@@ -1,33 +1,44 @@
 "use strict";
 
-function calculateRectArea(a, b) {
-  return a * b;
-}
+var a = function (x) {
+  return x * x;
+};
 
-var result = calculateRectArea(5, 10);
+console.log(a(5));
 
-console.log(result);
+let names = ["John", "Ben", "Ana", "David"];
 
 function sayHello(name) {
   console.log("Hello " + name);
 }
 
-sayHello("Ben");
-
-var calculateRectArea = new Function("a", "b", "return a*b");
-var result = calculateRectArea(5, 10);
-console.log(result);
-
-function sum() {
-  let returnValue = 0;
-
-  for (let i = 0; i < arguments.length; i++) {
-    returnValue += arguments[i];
+function sayHelloToMany(names, sayHelloToOne) {
+  for (let i = 0; i < names.length; i++) {
+    sayHelloToOne(names[i]);
   }
-
-  return returnValue;
 }
 
-let sumResult = sum(10, 15, 15);
+sayHelloToMany(names, function (name) {
+  console.log("Hello " + name);
+});
 
-console.log(sumResult);
+var a = (x) => {
+  return x * x;
+};
+
+a();
+
+function Student() {
+  this.courses = [];
+
+  this.addCourses = function (courses) {
+    courses.forEach((value, index) => {
+      this.courses[index] = value;
+    });
+  };
+}
+
+var s = new Student();
+s.addCourses(["Mat", "Geo", "History"]);
+
+console.log(s.courses);
