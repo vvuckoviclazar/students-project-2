@@ -1,44 +1,20 @@
 "use strict";
 
-var a = function (x) {
-  return x * x;
-};
+(function () {
+  var number = 5;
+  console.log(number);
+})();
 
-console.log(a(5));
+var number = 10;
 
-let names = ["John", "Ben", "Ana", "David"];
+console.log(number);
 
-function sayHello(name) {
-  console.log("Hello " + name);
-}
-
-function sayHelloToMany(names, sayHelloToOne) {
-  for (let i = 0; i < names.length; i++) {
-    sayHelloToOne(names[i]);
+function subtractSquares(a, b) {
+  function square(x) {
+    return x * x;
   }
+
+  return square(a) - square(b);
 }
 
-sayHelloToMany(names, function (name) {
-  console.log("Hello " + name);
-});
-
-var a = (x) => {
-  return x * x;
-};
-
-a();
-
-function Student() {
-  this.courses = [];
-
-  this.addCourses = function (courses) {
-    courses.forEach((value, index) => {
-      this.courses[index] = value;
-    });
-  };
-}
-
-var s = new Student();
-s.addCourses(["Mat", "Geo", "History"]);
-
-console.log(s.courses);
+console.log(subtractSquares(6, 3));
