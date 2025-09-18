@@ -1,20 +1,17 @@
 "use strict";
 
-var myButton = document.getElementById("my-button");
+var heading = document.getElementById("heading");
 
-console.log("Statement 1");
+function changeColor(elem) {
+  elem.style.color = elem.style.color == "red" ? "blue" : "red";
+}
 
-var timeout1 = setTimeout(function () {
-  console.log("Statement 2");
-}, 2000);
+let interval1 = setInterval(changeColor, 500, heading);
 
-var timeout2 = setTimeout(
-  function (timeout) {
-    clearTimeout(timeout1);
-    console.log("Timeout 1 is cleared...");
+setTimeout(
+  function (intervalId) {
+    clearInterval(intervalId);
   },
-  1000,
-  timeout1
+  5000,
+  interval1
 );
-
-console.log("Statement 3");
