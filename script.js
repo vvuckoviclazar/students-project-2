@@ -2,10 +2,19 @@
 
 var myButton = document.getElementById("my-button");
 
-myButton.addEventListener("click", function () {
-  alert("Hello from modal window.");
+console.log("Statement 1");
 
-  console.log("Hello from statement after alert() method.");
-});
+var timeout1 = setTimeout(function () {
+  console.log("Statement 2");
+}, 2000);
 
-console.log("Hello from some code after addEventListener() method.");
+var timeout2 = setTimeout(
+  function (timeout) {
+    clearTimeout(timeout1);
+    console.log("Timeout 1 is cleared...");
+  },
+  1000,
+  timeout1
+);
+
+console.log("Statement 3");
