@@ -1,20 +1,20 @@
 "use strict";
 
-(function () {
-  var number = 5;
-  console.log(number);
-})();
+var myButton = document.getElementById("my-button");
 
-var number = 10;
+myButton.addEventListener("click", function () {
+  //time-intensive operation start
 
-console.log(number);
+  var data = [];
 
-function subtractSquares(a, b) {
-  function square(x) {
-    return x * x;
+  for (let i = 0; i < 50000; i++) {
+    let random = Math.random().toString().split("0");
+    data = data.concat(random);
   }
 
-  return square(a) - square(b);
-}
+  console.log(data.length);
 
-console.log(subtractSquares(6, 3));
+  //time-intenscive operation end
+
+  console.log("Hello from statement after time-intensive operation.");
+});
